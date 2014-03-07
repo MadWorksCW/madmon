@@ -15,8 +15,5 @@
 //= require turbolinks
 //= require_self
 //= require_tree .
-//= require d3
-//= require crossfilter
-//= require dc
 
 window.Madmon = {}
