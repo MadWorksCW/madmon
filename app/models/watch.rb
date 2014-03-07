@@ -1,7 +1,7 @@
 class Watch < ActiveRecord::Base
   has_many :datapoints
   serialize :config
-  after_initialize do 
+  after_initialize do
     self.config ||= {}
   end
 
@@ -13,5 +13,5 @@ class Watch < ActiveRecord::Base
   def tick
     raise NotImplementedError
   end
-  
+
 end
