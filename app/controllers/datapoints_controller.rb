@@ -1,7 +1,8 @@
 class DatapointsController < ApplicationController
 
   def index
-    @datapoints = Datapoint.all
+    @watch = Watch.find(params[:watch_id])
+    @datapoints = @watch.datapoints
 
     respond_to do |format|
       format.html

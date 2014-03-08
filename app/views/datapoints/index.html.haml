@@ -1,7 +1,5 @@
-.valueOverTime
-  %h3 Datapoint value vs. time
-  #valueOverTime
-
-:coffeescript
-  $(document).ready ->
-    new Madmon.DatapointsChartsPage
+%h1 MadMon
+- Watch.all.each do |watch|
+  .valueOverTime
+    %h3= watch.name
+    = render partial: "datapoints/chart", locals: {watch: watch}

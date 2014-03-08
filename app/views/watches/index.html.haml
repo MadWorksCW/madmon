@@ -1,0 +1,19 @@
+%h1 Listing watches
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @watches.each do |watch|
+    %tr
+      %td= watch.name
+      %td= link_to 'Show', watch
+      %td= link_to 'Edit', edit_watch_path(watch)
+      %td= link_to 'Destroy', watch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Watch', new_watch_path

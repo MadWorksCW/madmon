@@ -19,7 +19,11 @@ namespace :data do
   def run(watch)
     t = Thread.new do
       puts "Starting watch for #{watch.name}"
-      loop { print "."; watch.tick; sleep watch.frequency  }
+      loop do 
+        print "."
+        watch.tick
+        sleep watch.frequency
+      end
     end
     t
   end

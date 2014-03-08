@@ -1,0 +1,8 @@
+-# locals: watch
+%div{id: "watch-chart-#{watch.id}"}
+
+:coffeescript
+  $(document).ready ->
+    new Madmon.DatapointsChartsPage
+      watch_id: #{@watch.id}
+      el: "#watch-chart-#{watch.id}"

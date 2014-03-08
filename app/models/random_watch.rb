@@ -1,5 +1,4 @@
 require_dependency 'datapoint'
-
 class RandomWatch < Watch
   MIN_MOD = 0.1
   MAX_MOD = 0.2
@@ -7,6 +6,11 @@ class RandomWatch < Watch
   after_initialize do
     @r = Random.new
   end
+
+  def self.model_name
+    Watch.model_name
+  end
+
 
   def tick
     if self.datapoints.empty?
@@ -25,5 +29,13 @@ class RandomWatch < Watch
       end
     end
     self.datapoints.create(value: random_value)
+  end
+
+  def seed(number=20)
+    number.times do 
+      dp = tick
+      dp.created_at = self.datapoints.last.created_at + 1.second
+      dp.save
+    end
   end
 end

@@ -1,4 +1,7 @@
 class PingWatch < Watch
+  def self.model_name
+    Watch.model_name
+  end
 
   def self.configuration_options
     [:host]
@@ -14,6 +17,10 @@ class PingWatch < Watch
 
   def self.parse_ping_to_ms(ping_output)
     matches = ping_output.match(/time=(\d+\.?\d+)/)
-    matches[1].to_f
+    if (matches)
+      matches[1].to_f
+    else
+      -1
+    end
   end
 end
