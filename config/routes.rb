@@ -1,5 +1,5 @@
 Madmon::Application.routes.draw do
-  root to: "watches#index"
+  root to: "datapoints#index"
   resources :datapoints
   resources :watches do
     resources :datapoints
