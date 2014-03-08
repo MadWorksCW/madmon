@@ -11,9 +11,16 @@ namespace :data do
   task :collect => [:environment] do
     threads = []
     Watch.find_each do |watch|
-      puts "Starting watch for #{watch.name}"
-      threads << Thread.new { loop { watch.tick; sleep watch.frequency; print "." } }
-    end 
+      threads << run(watch)
+    end
     threads.each(&:join)
+  end
+
+  def run(watch)
+    t = Thread.new do
+      puts "Starting watch for #{watch.name}"
+      loop { print "."; watch.tick; sleep watch.frequency  }
+    end
+    t
   end
 end

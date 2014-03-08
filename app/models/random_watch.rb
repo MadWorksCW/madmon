@@ -1,3 +1,5 @@
+require_dependency 'datapoint'
+
 class RandomWatch < Watch
   MIN_MOD = 0.1
   MAX_MOD = 0.2
