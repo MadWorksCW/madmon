@@ -10,9 +10,9 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem "compass-rails", "~> 1.1.3"
 gem 'sqlite3'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'pg'
 
 group :doc do
   gem 'sdoc', require: false
